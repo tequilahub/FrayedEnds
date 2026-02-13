@@ -1,8 +1,7 @@
 import inspect
 from functools import wraps
 
-from ._frayedends_impl import (MadnessProcess2D, MadnessProcess3D,
-                               RedirectOutput)
+from ._frayedends_impl import MadnessProcess2D, MadnessProcess3D, RedirectOutput
 
 
 def cleanup(globals):
@@ -140,13 +139,9 @@ class MadWorld3D:
         origin=[0.0, 0.0, 0.0],
     ):
         if hasattr(mra_function, "data"):
-            self.impl.plane_plot(
-                filename, mra_function.data, plane, zoom, datapoints, origin
-            )
+            self.impl.plane_plot(filename, mra_function.data, plane, zoom, datapoints, origin)
         else:
-            self.impl.plane_plot(
-                filename, mra_function, plane, zoom, datapoints, origin
-            )
+            self.impl.plane_plot(filename, mra_function, plane, zoom, datapoints, origin)
 
     def cube_plot(
         self,
@@ -158,13 +153,9 @@ class MadWorld3D:
         origin=[0.0, 0.0, 0.0],
     ):
         if hasattr(mra_function, "data"):
-            self.impl.cube_plot(
-                filename, mra_function.data, molecule.impl, zoom, datapoints, origin
-            )
+            self.impl.cube_plot(filename, mra_function.data, molecule.impl, zoom, datapoints, origin)
         else:
-            self.impl.cube_plot(
-                filename, mra_function, molecule.impl, zoom, datapoints, origin
-            )
+            self.impl.cube_plot(filename, mra_function, molecule.impl, zoom, datapoints, origin)
 
 
 class MadWorld2D:
@@ -258,10 +249,6 @@ class MadWorld2D:
         origin=[0.0, 0.0, 0.0],
     ):
         if hasattr(mra_function, "data"):
-            self.impl.plane_plot(
-                filename, mra_function.data, plane, zoom, datapoints, origin
-            )
+            self.impl.plane_plot(filename, mra_function.data, plane, zoom, datapoints, origin)
         else:
-            self.impl.plane_plot(
-                filename, mra_function, plane, zoom, datapoints, origin
-            )
+            self.impl.plane_plot(filename, mra_function, plane, zoom, datapoints, origin)

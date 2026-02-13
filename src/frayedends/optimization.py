@@ -6,9 +6,7 @@ from .madworld import redirect_output
 
 
 def transform_rdms(TransformationMatrix, rdm1, rdm2):
-    new_rdm1 = np.dot(
-        np.dot(TransformationMatrix.transpose(), rdm1), TransformationMatrix
-    )
+    new_rdm1 = np.dot(np.dot(TransformationMatrix.transpose(), rdm1), TransformationMatrix)
     n = rdm2.shape[0]
 
     temp1 = np.zeros(shape=(n, n, n, n))
@@ -55,7 +53,6 @@ def transform_rdms(TransformationMatrix, rdm1, rdm2):
 
 
 class Optimization3D:
-
     _orbitals = None
     _h = None  # one-body tensor
     _g = None  # two-body tensor
@@ -65,11 +62,11 @@ class Optimization3D:
     impl = None
     converged = None  # indicates if the last call converged
     opt_parameters = {
-        "nocc": 2, #occupation number of orbitals (at this point only closed shell is supported, so nocc=2)
-        "truncation_tol": 1e-6, #truncation tolerance for MRA representation of orbitals
-        "coulomb_lo": 0.001, #lower cutoff for representation of Coulomb kernel
+        "nocc": 2,  # occupation number of orbitals (at this point only closed shell is supported, so nocc=2)
+        "truncation_tol": 1e-6,  # truncation tolerance for MRA representation of orbitals
+        "coulomb_lo": 0.001,  # lower cutoff for representation of Coulomb kernel
         "coulomb_eps": 1e-6,
-        "BSH_lo": 0.001, #lower cutoff for representation of BSH kernel
+        "BSH_lo": 0.001,  # lower cutoff for representation of BSH kernel
         "BSH_eps": 1e-6,
     }
 
@@ -86,7 +83,7 @@ class Optimization3D:
                 self.opt_parameters[k] = v
             else:
                 raise ValueError(f"Unknown parameter: {k}")
-        
+
         self.impl.nocc = self.opt_parameters["nocc"]
         self.impl.truncation_tol = self.opt_parameters["truncation_tol"]
         self.impl.coulomb_lo = self.opt_parameters["coulomb_lo"]
@@ -143,10 +140,17 @@ class Optimization3D:
         return self._c
 
     def get_opt_parameters(self):
-        return {"nocc": self.impl.nocc, "truncation_tol": self.impl.truncation_tol, "coulomb_lo": self.impl.coulomb_lo, "coulomb_eps": self.impl.coulomb_eps, "BSH_lo": self.impl.BSH_lo, "BSH_eps": self.impl.BSH_eps}
+        return {
+            "nocc": self.impl.nocc,
+            "truncation_tol": self.impl.truncation_tol,
+            "coulomb_lo": self.impl.coulomb_lo,
+            "coulomb_eps": self.impl.coulomb_eps,
+            "BSH_lo": self.impl.BSH_lo,
+            "BSH_eps": self.impl.BSH_eps,
+        }
+
 
 class Optimization2D:
-
     _orbitals = None
     _h = None  # one-body tensor
     _g = None  # two-body tensor
@@ -177,7 +181,7 @@ class Optimization2D:
                 self.opt_parameters[k] = v
             else:
                 raise ValueError(f"Unknown parameter: {k}")
-        
+
         self.impl.nocc = self.opt_parameters["nocc"]
         self.impl.truncation_tol = self.opt_parameters["truncation_tol"]
         self.impl.coulomb_lo = self.opt_parameters["coulomb_lo"]
@@ -234,4 +238,11 @@ class Optimization2D:
         return self._c
 
     def get_opt_parameters(self):
-        return {"nocc": self.impl.nocc, "truncation_tol": self.impl.truncation_tol, "coulomb_lo": self.impl.coulomb_lo, "coulomb_eps": self.impl.coulomb_eps, "BSH_lo": self.impl.BSH_lo, "BSH_eps": self.impl.BSH_eps}
+        return {
+            "nocc": self.impl.nocc,
+            "truncation_tol": self.impl.truncation_tol,
+            "coulomb_lo": self.impl.coulomb_lo,
+            "coulomb_eps": self.impl.coulomb_eps,
+            "BSH_lo": self.impl.BSH_lo,
+            "BSH_eps": self.impl.BSH_eps,
+        }

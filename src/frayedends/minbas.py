@@ -5,7 +5,6 @@ from .madworld import redirect_output
 
 
 class AtomicBasisProjector:
-
     impl = None
     silent = False
 
@@ -71,9 +70,7 @@ class AtomicBasisProjector:
     def get_nuclear_potential(self):
         return self.impl.get_nuclear_potential()
 
-    def parameter_string(
-        self, madworld, molecule_file, units, aobasis="sto-3g", **kwargs
-    ) -> str:
+    def parameter_string(self, madworld, molecule_file, units, aobasis="sto-3g", **kwargs) -> str:
         data = {}
 
         data["dft"] = {
@@ -110,9 +107,7 @@ class AtomicBasisProjector:
         molecule_file_str = "molecule\n"
         molecule_file_str += geometry
         molecule_file_str += "\nend"
-        molecule_file_str = os.linesep.join(
-            [s for s in molecule_file_str.splitlines() if s]
-        )
+        molecule_file_str = os.linesep.join([s for s in molecule_file_str.splitlines() if s])
         f = open(filename, "w")
         f.write(molecule_file_str)
         f.close()

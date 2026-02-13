@@ -8,7 +8,6 @@ from .madworld import get_function_info, redirect_output
 
 
 class MadPNO:
-
     _orbitals = None
     _h = None  # one-body tensor
     _g = None  # two-body tensor
@@ -60,7 +59,7 @@ class MadPNO:
 
             except Exception:
                 maxrank = n_orbitals
-        
+
         # check if geometry is given as a file
         # if not write the file
         if not os.path.exists(geometry):
@@ -99,9 +98,7 @@ class MadPNO:
         self.impl = PNOInterface(madworld.impl, pno_input_string)
 
         if not no_compute:
-            self._orbitals = self.compute_orbitals(
-                n_orbitals=n_orbitals, *args, **kwargs
-            )
+            self._orbitals = self.compute_orbitals(n_orbitals=n_orbitals, *args, **kwargs)
 
     def get_pno_groupings(self, diagonal=True, *args, **kwargs):
         # group the PNOs according to their pair IDs. For diagonal approximation (default) this corresponds to SPA edges
@@ -129,11 +126,7 @@ class MadPNO:
             orbitals = self.get_orbitals()
             info = get_function_info(orbitals)
             # indices of hf orbitals that are frozen and
-            occf = [
-                k
-                for k, x in enumerate(info)
-                if numpy.isclose(float(x["occ"]), 2.0) and "frozen" in x["type"]
-            ]
+            occf = [k for k, x in enumerate(info) if numpy.isclose(float(x["occ"]), 2.0) and "frozen" in x["type"]]
             # compute offset
             nof = len(occf)
             if nof == 0:
@@ -257,9 +250,7 @@ class MadPNO:
         molecule_file_str = "molecule\n"
         molecule_file_str += geometry
         molecule_file_str += "\nend"
-        molecule_file_str = os.linesep.join(
-            [s for s in molecule_file_str.splitlines() if s]
-        )
+        molecule_file_str = os.linesep.join([s for s in molecule_file_str.splitlines() if s])
         f = open(filename, "w")
         f.write(molecule_file_str)
         f.close()
