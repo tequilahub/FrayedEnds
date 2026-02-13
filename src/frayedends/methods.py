@@ -42,15 +42,13 @@ def optimize_basis_3D(
     if hasattr(orbitals, "lower"):
         orbitals = orbitals.lower()
 
-    if Vnuc == None and geometry == None:
+    if Vnuc is None and geometry is None:
         raise Exception("Please provide either a potential or a molecular geometry.")
-    elif Vnuc != None:
+    elif Vnuc is not None:
         c = nuclear_repulsion
-        if n_electrons == None:
-            raise Exception(
-                "If you provide a potential, you need to specifiy the number of electrons (n_electrons)."
-            )
-        if n_orbitals == None:
+        if n_electrons is None:
+            raise Exception("If you provide a potential, you need to specifiy the number of electrons (n_electrons).")
+        if n_orbitals is None:
             n_orbitals = n_electrons  # as of right now there is no frozen core implemented for calculations with a custom potential
     else:
         mol = MolecularGeometry(geometry)
@@ -198,8 +196,10 @@ def optimize_basis_2D(
         orbitals = orbitals.lower()
 
     c = nuclear_repulsion
-    if n_orbitals == None:
-        n_orbitals = n_electrons  # as of right now there is no frozen core implemented for calculations with a custom potential
+    if n_orbitals is None:
+        n_orbitals = (
+            n_electrons  # as of right now there is no frozen core implemented for calculations with a custom potential
+        )
 
     if orbitals is None or "eigen" in orbitals:
         eigen = Eigensolver2D(world, Vnuc)

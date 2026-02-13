@@ -67,10 +67,8 @@ class MadPNO:
             geometry = "molecule"
 
         if units is None:
-            if self.silent == False:
-                print(
-                    "Warning: No units passed with geometry, assuming units are angstrom."
-                )
+            if not self.silent:
+                print("Warning: No units passed with geometry, assuming units are angstrom.")
             units = "angstrom"
         else:
             units = units.lower()
@@ -79,7 +77,7 @@ class MadPNO:
             elif units in ["bohr", "atomic", "atomic units", "au", "a.u."]:
                 units = "bohr"
             else:
-                if self.silent == False:
+                if not self.silent:
                     print(
                         "Warning: Units passed with geometry not recognized (available units are angstrom or bohr), assuming units are angstrom."
                     )
