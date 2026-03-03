@@ -25,7 +25,12 @@ classifiers = [
     "License :: ???",
 ]
 dependencies = [
-    "numpy", "pyscf", "qulacs", "tequila-basic", "block2", "nanobind",
+    "numpy",
+    "pyscf",
+    "qulacs",
+    "tequila @ git+https://github.com/tequilahub/tequila.git@devel",
+    "block2",
+    "nanobind",
     "ruff",
     "clang-format>=17.0.6"
 ]
