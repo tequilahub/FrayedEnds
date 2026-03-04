@@ -28,7 +28,7 @@ dependencies = [
     "numpy",
     "pyscf",
     "qulacs",
-    "tequila-basic @ git+https://github.com/tequilahub/tequila.git@devel",
+    "tequila-basic",
     "block2",
     "nanobind",
     "ruff",
