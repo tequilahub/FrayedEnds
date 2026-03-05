@@ -39,7 +39,7 @@ make -C madness_build -j8
 cmake --build madness_build/ --target install -j8
 ```
 
-### Step 2: Install the interface 
+### Step 2: Install FrayedEnds 
 ```bash
 MADNESS_DIR=$MADNESS_DIR pip install -e .
 ```
