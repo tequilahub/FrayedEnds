@@ -3,7 +3,7 @@ title: "Research"
 subtitle: "Quantum Computing and Quantum Chemistry"
 image: "frayed_ends.png"
 listing:
-    contents: tutorials
+    contents: research
     sort: "date asc"
     type: default
     categories: true
