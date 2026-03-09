@@ -14,8 +14,6 @@ website:
         file: research.qmd
       - text: "Tutorials"
         file: tutorials.qmd
-      - text: "Contribution"
-        file: contribution/contribution.ipynb
 
   favicon: favicon.ico
   open-graph: true
