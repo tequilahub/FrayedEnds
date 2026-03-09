@@ -1,8 +1,9 @@
 /.quarto/
 
 # Quarto generated files
+docs/_build/
+docs/_site/
 _site/
-/_site/
 _output/
 .cache/
 .quarto/
