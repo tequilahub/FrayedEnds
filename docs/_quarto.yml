@@ -9,7 +9,7 @@ website:
   repo-url: https://github.com/FabianLangkabel/FrayedEnds
   repo-actions: [source, issue]
   navbar:
-    logo: frayed_ends_light.png
+    logo: frayedends_light.png
     right:
       - text: "Research"
         file: research.qmd
