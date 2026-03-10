@@ -24,16 +24,19 @@ jobs:
           python -m pip install --upgrade pip
           pip install -r docs/requirements.txt
 
+      - name: Install FrayedEnds
+        run: pip install -e .
+
       - name: Setup Quarto
         uses: quarto-dev/quarto-actions/setup@v2
         with:
-          version: '1.4.437'
+          version: '1.4.550'
 
       - name: Install TinyTeX
         run: quarto install tinytex
 
       - name: Render Quarto site
-        run: quarto render docs/
+        run: quarto render docs/ --execute
 
       - name: Add .nojekyll file
         run: touch docs/_site/.nojekyll
