@@ -59,7 +59,7 @@ programm = sp.call(
 
 """
 ### Convert NWChem AOs and MOs to MRA-Orbitals
-Read the atomic orbitals (AOs) and molecular orbitals (MOs) from a NWChem calculation and translate them into multiwavelets.
+Read the molecular orbitals (MOs) from a NWChem calculation and translate them into multiwavelets.
 """
 
 world = fe.MadWorld3D(L=box_size, k=wavelet_order, thresh=madness_thresh)
