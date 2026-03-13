@@ -32,5 +32,4 @@ format:
 
 execute:
   freeze: auto
-  execute-notebooks: true
 
